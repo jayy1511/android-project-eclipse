@@ -1,51 +1,52 @@
 # 🔴 Red Alert – Period & Mood Tracker App
 
-A simple and beautiful Android app built in **Java** using **Android Studio** to help users:
+**Red Alert** is a clean and beginner-friendly Android app built in **Java** using **Android Studio**. It helps users:
 - Track their menstrual cycle
-- Predict mood and health patterns
-- View helpful tips and wellness advice
+- Predict mood and fertility insights
+- Browse useful health and wellness tips
 
-This project was built as part of our GitHub Classroom assignment by a team of 4 students.
+This project was developed by a team of 5 students as part of our GitHub Classroom assignment.
 
 ---
 
 ## 📱 App Features
 
 - 📅 **Cycle Input Screen**  
-  Enter your last period start date to begin tracking.
+  Enter your last period start date with a date picker.
 
 - 🔮 **Prediction Screen**  
-  See estimated next period date, current mood insights, and pregnancy likelihood.
+  See the estimated next period, current mood state, and pregnancy likelihood.
 
 - 💡 **Tips Section**  
-  Browse through helpful tips for wellness and menstrual health.
+  Browse pre-uploaded wellness tips to improve comfort and cycle care.
 
-- 🎨 **Clean UI**  
-  Easy-to-use interface with meaningful UX.
-
----
-
-## 👩‍💻 Built With
-
-- 💻 Android Studio
-- ☕ Java
-- 🧱 XML Layouts
-- 🐙 Git & GitHub
+- 🎨 **User-Friendly Interface**  
+  Simple, clean, and modern design.
 
 ---
 
 ## 🧑‍🤝‍🧑 Team Members
 
-| Name | Role |
-|------|------|
-| Person A | Period Input + Git integration |
-| Person B | UI Design + Navigation |
-| Person C | Mood + Prediction Logic |
-| Person D | Tips Section + Final Testing |
+| Name    | Role |
+|---------|------|
+| **Jay**     | Period Input Screen + GitHub Integration |
+| **Eman**    | UI/UX Design + Layout Optimization |
+| **Divy**    | Prediction Logic + Mood & Fertility Calculations |
+| **Yashvi**  | Tips Section + Final Testing |
+| **Jesica**  | Documentation, Review & App Deployment Assistance |
 
 ---
 
-## 🧪 How to Run Locally
+## 🧰 Built With
+
+- 💻 Android Studio
+- ☕ Java
+- 🎨 XML Layouts
+- 🐙 Git & GitHub Classroom
+
+---
+
+## 🧪 How to Run the App Locally
 
 1. Clone the repo:
    ```bash
