@@ -40,6 +40,24 @@
                 android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/dayOfCycleText"
+                android:text="Day of Cycle: --"
+                android:textColor="#6A1B9A"
+                android:textSize="17sp"
+                android:layout_marginTop="6dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/ovulationInfoText"
+                android:text="Ovulation Info"
+                android:textColor="#E91E63"
+                android:textSize="17sp"
+                android:layout_marginTop="6dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
         <!-- Mood & Fertility Card -->
@@ -96,7 +114,6 @@
                 android:layout_marginTop="24dp"
                 android:backgroundTint="#F48FB1"
                 android:textColor="#FFFFFF" />
-
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
