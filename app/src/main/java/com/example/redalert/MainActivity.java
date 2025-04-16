@@ -32,5 +32,12 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, DailyQuoteActivity.class);
             startActivity(intent);
         });
+
+        // 🔔 Open Reminder
+        Button btnReminder = findViewById(R.id.btnReminder);
+        btnReminder.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ReminderActivity.class);
+            startActivity(intent);
+        });
     }
 }

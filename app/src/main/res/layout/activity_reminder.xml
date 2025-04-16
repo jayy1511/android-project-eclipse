@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="#FFF9F9">
+
+    <TextView
+        android:text="🔔 Manage Your Daily Reminder"
+        android:textSize="20sp"
+        android:textColor="#8E24AA"
+        android:layout_marginBottom="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnNotifyNow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Send Reminder Now"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#F06292"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/btnPickTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="🕒 Pick Reminder Time"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#4CAF50"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnScheduleReminder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="📆 Enable Daily Reminder"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#3F51B5"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/btnCancelReminder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="❌ Cancel Daily Reminder"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#D32F2F" />
+
+</LinearLayout>

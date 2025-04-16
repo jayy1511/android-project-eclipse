@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
     <!-- 🌐 Internet permission for API calls -->
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -15,42 +14,37 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RedAlert"
         tools:targetApi="31">
-
-        <!-- 💬 Quotes -->
+        <activity
+            android:name=".ReminderReceiver"
+            android:exported="false" />
+        <!-- 🔔 Reminder Notification Activity -->
+        <activity
+            android:name=".ReminderActivity"
+            android:exported="false" /> <!-- 💬 Quotes -->
         <activity
             android:name=".DailyQuoteActivity"
-            android:exported="false" />
-
-        <!-- 💡 Health Articles -->
+            android:exported="false" /> <!-- 💡 Health Articles -->
         <activity
             android:name=".HealthArticlesActivity"
-            android:exported="false" />
-
-        <!-- 🌼 Tips -->
+            android:exported="false" /> <!-- 🌼 Tips -->
         <activity
             android:name=".TipsActivity"
-            android:exported="false" />
-
-        <!-- 🔮 Prediction -->
+            android:exported="false" /> <!-- 🔮 Prediction -->
         <activity
             android:name=".PredictionResultActivity"
-            android:exported="false" />
-
-        <!-- 📅 Start Cycle -->
+            android:exported="false" /> <!-- 📅 Start Cycle -->
         <activity
             android:name=".StartCycleActivity"
-            android:exported="false" />
-
-        <!-- 🏠 Launcher -->
+            android:exported="false" /> <!-- 🏠 Launcher -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>
