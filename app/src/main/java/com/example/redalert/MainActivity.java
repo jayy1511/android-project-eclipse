@@ -15,29 +15,31 @@ public class MainActivity extends AppCompatActivity {
         // 📚 View Health Articles
         Button btnViewArticles = findViewById(R.id.btnViewArticles);
         btnViewArticles.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, HealthArticlesActivity.class);
-            startActivity(intent);
+            startActivity(new Intent(MainActivity.this, HealthArticlesActivity.class));
         });
 
         // 🔮 Start Cycle Prediction
         Button btnStartCycle = findViewById(R.id.btnStartCycle);
         btnStartCycle.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, StartCycleActivity.class);
-            startActivity(intent);
+            startActivity(new Intent(MainActivity.this, StartCycleActivity.class));
         });
 
         // 💬 Daily Quote
         Button btnDailyQuote = findViewById(R.id.btnDailyQuote);
         btnDailyQuote.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, DailyQuoteActivity.class);
-            startActivity(intent);
+            startActivity(new Intent(MainActivity.this, DailyQuoteActivity.class));
         });
 
-        // 🔔 Open Reminder
+        // 🔔 Reminder
         Button btnReminder = findViewById(R.id.btnReminder);
         btnReminder.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, ReminderActivity.class);
-            startActivity(intent);
+            startActivity(new Intent(MainActivity.this, ReminderActivity.class));
+        });
+
+        // 👤 User Profile
+        Button btnUserProfile = findViewById(R.id.btnUserProfile);
+        btnUserProfile.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, UserProfileActivity.class));
         });
     }
 }
