@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!-- 📚 View Health Articles Button -->
+    <!-- 📚 View Health Articles -->
     <Button
         android:id="@+id/btnViewArticles"
         android:layout_width="0dp"
@@ -21,7 +21,7 @@
         android:layout_marginTop="64dp"
         android:layout_marginHorizontal="32dp" />
 
-    <!-- 🔮 Start Cycle Button -->
+    <!-- 🔮 Predict Period -->
     <Button
         android:id="@+id/btnStartCycle"
         android:layout_width="0dp"
@@ -30,6 +30,20 @@
         android:textColor="#FFFFFF"
         android:backgroundTint="#F06292"
         app:layout_constraintTop_toBottomOf="@+id/btnViewArticles"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"
+        android:layout_marginHorizontal="32dp" />
+
+    <!-- 💬 Daily Quote -->
+    <Button
+        android:id="@+id/btnDailyQuote"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="💬 Daily Quote"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#80CBC4"
+        app:layout_constraintTop_toBottomOf="@+id/btnStartCycle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="24dp"

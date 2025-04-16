@@ -16,27 +16,32 @@
         android:theme="@style/Theme.RedAlert"
         tools:targetApi="31">
 
-        <!-- 💡 Health Articles Activity -->
+        <!-- 💬 Quotes -->
+        <activity
+            android:name=".DailyQuoteActivity"
+            android:exported="false" />
+
+        <!-- 💡 Health Articles -->
         <activity
             android:name=".HealthArticlesActivity"
             android:exported="false" />
 
-        <!-- 🌼 Tips Screen -->
+        <!-- 🌼 Tips -->
         <activity
             android:name=".TipsActivity"
             android:exported="false" />
 
-        <!-- 🔮 Prediction Result Screen -->
+        <!-- 🔮 Prediction -->
         <activity
             android:name=".PredictionResultActivity"
             android:exported="false" />
 
-        <!-- 📅 Start Cycle Screen -->
+        <!-- 📅 Start Cycle -->
         <activity
             android:name=".StartCycleActivity"
             android:exported="false" />
 
-        <!-- 🏠 Launcher / Main Activity -->
+        <!-- 🏠 Launcher -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
