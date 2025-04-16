@@ -29,7 +29,7 @@ This project was developed by a team of 5 students as part of our GitHub Classro
 
 | Name    | Role |
 |---------|------|
-| **Jay**     | Period Input Screen + GitHub Integration |
+| **Jay**     | Period Input Screen + GitHub Integration + Project Lead |
 | **Eman**    | UI/UX Design + Layout Optimization |
 | **Divy**    | Prediction Logic + Mood & Fertility Calculations |
 | **Yashvi**  | Tips Section + Final Testing |
