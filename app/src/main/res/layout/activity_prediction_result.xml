@@ -87,6 +87,16 @@
                 android:textSize="17sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/viewTipsButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🌼 View Personalized Tips"
+                android:layout_marginTop="24dp"
+                android:backgroundTint="#F48FB1"
+                android:textColor="#FFFFFF" />
+
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
