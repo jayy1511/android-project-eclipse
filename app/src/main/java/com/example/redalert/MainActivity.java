@@ -2,15 +2,28 @@ package com.example.redalert;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main); // load the XML layout
 
-        // 🚨 THIS launches your custom screen instead of Hello World
-        startActivity(new Intent(MainActivity.this, StartCycleActivity.class));
-        finish(); // Optional: prevent back button from going back to this
+        // 📚 View Health Articles
+        Button btnViewArticles = findViewById(R.id.btnViewArticles);
+        btnViewArticles.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, HealthArticlesActivity.class);
+            startActivity(intent);
+        });
+
+        // 🔮 Go to Start Cycle
+        Button btnStartCycle = findViewById(R.id.btnStartCycle);
+        btnStartCycle.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, StartCycleActivity.class);
+            startActivity(intent);
+        });
     }
 }
