@@ -115,5 +115,17 @@
                 android:backgroundTint="#F48FB1"
                 android:textColor="#FFFFFF" />
         </LinearLayout>
+
+        <!-- Daily Quote -->
+        <TextView
+            android:id="@+id/quoteText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="✨ Daily Quote..."
+            android:textColor="#6A1B9A"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:gravity="center" />
+
     </LinearLayout>
 </ScrollView>

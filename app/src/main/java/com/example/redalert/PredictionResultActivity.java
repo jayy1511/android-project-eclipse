@@ -4,16 +4,23 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Button;
+import android.os.AsyncTask;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
 public class PredictionResultActivity extends AppCompatActivity {
 
-    TextView nextPeriodText, moodText, healthTipText, fertilityText, dayOfCycleText, ovulationInfoText;
+    TextView nextPeriodText, moodText, healthTipText, fertilityText, dayOfCycleText, ovulationInfoText, quoteText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +34,7 @@ public class PredictionResultActivity extends AppCompatActivity {
         fertilityText = findViewById(R.id.fertilityText);
         dayOfCycleText = findViewById(R.id.dayOfCycleText);
         ovulationInfoText = findViewById(R.id.ovulationInfoText);
+        quoteText = findViewById(R.id.quoteText);
 
         // Get selected date from StartCycleActivity
         Intent intent = getIntent();
@@ -34,24 +42,20 @@ public class PredictionResultActivity extends AppCompatActivity {
         int month = intent.getIntExtra("month", 0);
         int day = intent.getIntExtra("day", 0);
 
-        // Setup Calendar with selected date
         Calendar startDate = Calendar.getInstance();
         startDate.set(year, month, day);
 
-        // Predict next period (28 days later)
         Calendar nextPeriod = (Calendar) startDate.clone();
         nextPeriod.add(Calendar.DAY_OF_MONTH, 28);
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy", Locale.getDefault());
-        nextPeriodText.setText("📅 Next Period: " + sdf.format(nextPeriod.getTime()));
+        nextPeriodText.setText("\uD83D\uDCC5 Next Period: " + sdf.format(nextPeriod.getTime()));
 
-        // Calculate current day in cycle
         Calendar today = Calendar.getInstance();
         long diffMillis = today.getTimeInMillis() - startDate.getTimeInMillis();
         int dayOfCycle = (int) (diffMillis / (1000 * 60 * 60 * 24)) + 1;
 
-        // Ovulation logic
-        int ovulationDay = 14; // assuming 28-day cycle
+        int ovulationDay = 14;
         int fertileStart = ovulationDay - 3;
         int fertileEnd = ovulationDay + 2;
 
@@ -68,7 +72,7 @@ public class PredictionResultActivity extends AppCompatActivity {
         } else if (dayOfCycle <= fertileEnd) {
             mood = "Confident / Peak Mood";
             healthTip = "Ovulation time – maintain good hygiene.";
-            fertility = "High pregnancy chance 🌟";
+            fertility = "High pregnancy chance \uD83C\uDF1F";
         } else if (dayOfCycle <= 22) {
             mood = "Moody / Cravings";
             healthTip = "Maintain a stable sleep and food routine.";
@@ -79,23 +83,53 @@ public class PredictionResultActivity extends AppCompatActivity {
             fertility = "Low pregnancy chance";
         }
 
-        // Set predictions to UI with emojis
-        moodText.setText("😊 Mood: " + mood);
-        healthTipText.setText("💡 Tip: " + healthTip);
-        fertilityText.setText("🍼 Fertility: " + fertility);
+        moodText.setText("\uD83D\uDE0A Mood: " + mood);
+        healthTipText.setText("\uD83D\uDCA1 Tip: " + healthTip);
+        fertilityText.setText("\uD83C\uDF7D Fertility: " + fertility);
 
-        // New: Day of Cycle and Ovulation Window
-        dayOfCycleText.setText("📆 Day of Cycle: " + dayOfCycle);
-        ovulationInfoText.setText("🧬 Ovulation Day: 14\n🩸 Fertile Window: Days " + fertileStart + "–" + fertileEnd);
+        dayOfCycleText.setText("\uD83D\uDCC6 Day of Cycle: " + dayOfCycle);
+        ovulationInfoText.setText("\uD83E\uDDEC Ovulation Day: 14\n\uD83E\uDDE8 Fertile Window: Days " + fertileStart + "–" + fertileEnd);
 
-        // View Tips button
         Button viewTipsButton = findViewById(R.id.viewTipsButton);
         String finalMood = mood;
-
         viewTipsButton.setOnClickListener(v -> {
             Intent tipsIntent = new Intent(PredictionResultActivity.this, TipsActivity.class);
             tipsIntent.putExtra("mood", finalMood);
             startActivity(tipsIntent);
         });
+
+        // 🔮 Load quote
+        new QuoteTask().execute();
+    }
+
+    private class QuoteTask extends AsyncTask<Void, Void, String> {
+        @Override
+        protected String doInBackground(Void... voids) {
+            try {
+                URL url = new URL("https://api.quotable.io/random");
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                connection.setRequestMethod("GET");
+
+                BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                StringBuilder response = new StringBuilder();
+                String line;
+
+                while ((line = reader.readLine()) != null) {
+                    response.append(line);
+                }
+
+                reader.close();
+                JSONObject json = new JSONObject(response.toString());
+                return "\u2728 \"" + json.getString("content") + "\"\n– " + json.getString("author");
+
+            } catch (Exception e) {
+                return "Could not load quote.";
+            }
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            quoteText.setText(result);
+        }
     }
 }
