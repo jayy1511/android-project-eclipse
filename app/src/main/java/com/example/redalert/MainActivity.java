@@ -29,42 +29,42 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-        // 📚 View Health Articles
         Button btnViewArticles = findViewById(R.id.btnViewArticles);
         btnViewArticles.setOnClickListener(v -> {
             startActivity(new Intent(MainActivity.this, HealthArticlesActivity.class));
         });
 
-        // 🔮 Predict Period
         Button btnStartCycle = findViewById(R.id.btnStartCycle);
         btnStartCycle.setOnClickListener(v -> {
             startActivity(new Intent(MainActivity.this, StartCycleActivity.class));
         });
 
-        // 💬 Daily Quote
         Button btnDailyQuote = findViewById(R.id.btnDailyQuote);
         btnDailyQuote.setOnClickListener(v -> {
             startActivity(new Intent(MainActivity.this, DailyQuoteActivity.class));
         });
 
-        // 🔔 Reminder
         Button btnReminder = findViewById(R.id.btnReminder);
         btnReminder.setOnClickListener(v -> {
             startActivity(new Intent(MainActivity.this, ReminderActivity.class));
         });
 
-        // 👤 User Profile
         Button btnUserProfile = findViewById(R.id.btnUserProfile);
         btnUserProfile.setOnClickListener(v -> {
             startActivity(new Intent(MainActivity.this, UserProfileActivity.class));
         });
 
-        // 🚪 Logout
         Button btnLogout = findViewById(R.id.btnLogout);
         btnLogout.setOnClickListener(v -> {
             auth.signOut();
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
             finish();
+        });
+
+        // 🗓️ Cycle Calendar
+        Button btnCalendar = findViewById(R.id.btnCalendar);
+        btnCalendar.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, CycleCalendarActivity.class));
         });
     }
 }
