@@ -67,7 +67,7 @@ To run this project locally:
 
 ## 👩‍💻 Contributors
 
-- Jay Patel-
+- Jay Patel
 - Eman Fatima
 - Divy Chaudhary
 - Yashvi Tank
