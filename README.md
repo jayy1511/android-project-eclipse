@@ -1,53 +1,74 @@
-# 🔴 Red Alert – Period & Mood Tracker App
+# 🚨 RedAlert – Women’s Health Tracking App
 
-**Red Alert** is a clean and beginner-friendly Android app built in **Java** using **Android Studio**. It helps users:
-- Track their menstrual cycle
-- Predict mood and fertility insights
-- Browse useful health and wellness tips
-
-This project was developed by a team of 5 students as part of our GitHub Classroom assignment.
+RedAlert is a user-friendly Android app designed to empower women by tracking their menstrual cycles, moods, reminders, and more. The app features a clean UI, modern components, and stores personalized data securely using Firebase – just like popular apps such as Flo.
 
 ---
 
-## 📱 App Features
+## ✅ Features Completed So Far
 
-- 📅 **Cycle Input Screen**  
-  Enter your last period start date with a date picker.
+### 🔐 Authentication
+- Implemented Firebase Authentication using Email/Password.
+- Users can securely sign up and log in.
+- Sessions are persisted and checked on app launch.
+- Logout option available.
 
-- 🔮 **Prediction Screen**  
-  See the estimated next period, current mood state, and pregnancy likelihood.
+### 📅 Cycle Calendar View
+- Integrated `MaterialCalendarView` for a visually intuitive calendar.
+- Users can select their period **start date**.
+- Automatically highlights the next 3 days to mark period duration.
+- Period tracking information is stored and fetched using Firestore.
 
-- 💡 **Tips Section**  
-  Browse pre-uploaded wellness tips to improve comfort and cycle care.
+### ☁️ Firebase Firestore Integration
+- User-specific period data is saved to `users/{uid}/periods` in Firestore.
+- When logged in, each user's data is securely loaded.
+- Ensures isolation of data between accounts (multi-user setup like Flo).
+- Data persists across logins and device sessions.
 
-- 🎨 **User-Friendly Interface**  
-  Simple, clean, and modern design.
-
----
-
-## 🧑‍🤝‍🧑 Team Members
-
-| Name    | Role |
-|---------|------|
-| **Jay**     | Period Input Screen + GitHub Integration + Project Lead |
-| **Eman**    | UI/UX Design + Layout Optimization |
-| **Divy**    | Prediction Logic + Mood & Fertility Calculations |
-| **Yashvi**  | Tips Section + Final Testing |
-| **Jesica**  | Documentation, Review & App Deployment Assistance |
-
----
-
-## 🧰 Built With
-
-- 💻 Android Studio
-- ☕ Java
-- 🎨 XML Layouts
-- 🐙 Git & GitHub Classroom
+### 🛠️ Tools & Technologies Used
+- Java
+- Android Studio
+- Firebase Authentication
+- Firebase Firestore (NoSQL)
+- Volley for API calls
+- Material Calendar View (`com.prolificinteractive:material-calendarview:1.4.3`)
+- Clean UI with ConstraintLayout
 
 ---
 
-## 🧪 How to Run the App Locally
+## 📥 Getting Started
 
-1. Clone the repo:
+To run this project locally:
+
+1. **Clone the repo**
    ```bash
-   git clone https://github.com/arcreane/android-project-eclipse.git
+   git clone https://github.com/your-username/android-project-eclipse.git
+   cd android-project-eclipse
+   ```
+
+2. **Open in Android Studio**
+
+3. **Add your `google-services.json`**
+   Place it inside the `/app` directory after setting up your Firebase project.
+
+4. **Sync Gradle & Run**
+   Make sure all dependencies are downloaded and the project builds successfully.
+
+---
+
+## 🔮 Planned Features (Next Steps)
+- Add period **end date** input instead of assuming 3 days
+- Mood & Symptom Tracker
+- Cycle stage insights (e.g., ovulation, PMS alerts)
+- Daily wellness tips based on cycle stage
+- Custom reminder messages
+- Light/Dark theme switcher
+
+---
+
+## 👩‍💻 Contributors
+
+- **You** – Developer, Firebase Setup, UI/UX
+- [Optional: Add team members or links]
+
+---
+
