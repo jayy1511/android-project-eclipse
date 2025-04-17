@@ -67,8 +67,11 @@ To run this project locally:
 
 ## 👩‍💻 Contributors
 
-- **You** – Developer, Firebase Setup, UI/UX
-- [Optional: Add team members or links]
+- Jay Patel-
+- Eman Fatima
+- Divy Chaudhary
+- Yashvi Tank
+- Jesica Kardos
 
 ---
 
