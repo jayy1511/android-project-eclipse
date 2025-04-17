@@ -1,43 +1,44 @@
 package com.example.redalert;
+import com.example.redalert.models.NewsArticle;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.example.redalert.models.NewsArticle;
+import com.example.redalert.R;
 
 import java.util.List;
 
-public class HealthArticleAdapter extends RecyclerView.Adapter<HealthArticleAdapter.ArticleViewHolder> {
+public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleViewHolder> {
 
-    private final Context context;
-    private final List<NewsArticle> articles;
+    public interface OnArticleClickListener {
+        void onArticleClick(NewsArticle article);
+    }
 
-    public HealthArticleAdapter(Context context, List<NewsArticle> articles) {
-        this.context = context;
+    private List<NewsArticle> articles;
+    private OnArticleClickListener listener;
+
+    public ArticleAdapter(List<NewsArticle> articles, OnArticleClickListener listener) {
         this.articles = articles;
+        this.listener = listener;
     }
 
     @NonNull
     @Override
     public ArticleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.article_item, parent, false);
-        return new ArticleViewHolder(view);
+        return new ArticleViewHolder(LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.article_item, parent, false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull ArticleViewHolder holder, int position) {
         NewsArticle article = articles.get(position);
         holder.title.setText(article.title);
-        holder.description.setText(article.description);
-        Glide.with(context).load(article.urlToImage).into(holder.image);
+        holder.itemView.setOnClickListener(v -> listener.onArticleClick(article));
     }
 
     @Override
@@ -46,14 +47,10 @@ public class HealthArticleAdapter extends RecyclerView.Adapter<HealthArticleAdap
     }
 
     static class ArticleViewHolder extends RecyclerView.ViewHolder {
-        ImageView image;
-        TextView title, description;
-
+        TextView title;
         public ArticleViewHolder(@NonNull View itemView) {
             super(itemView);
-            image = itemView.findViewById(R.id.articleImage);
             title = itemView.findViewById(R.id.articleTitle);
-            description = itemView.findViewById(R.id.articleDescription);
         }
     }
 }

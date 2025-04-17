@@ -2,7 +2,7 @@ package com.example.redalert;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         FirebaseUser user = auth.getCurrentUser();
 
+        // 🔐 Redirect to Login if not signed in
         if (user == null) {
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
             finish();
@@ -27,44 +28,49 @@ public class MainActivity extends AppCompatActivity {
         }
 
         setContentView(R.layout.activity_main);
+    }
 
-        // 📚 Health Articles
-        findViewById(R.id.btnViewArticles).setOnClickListener(v ->
-                startActivity(new Intent(this, HealthArticlesActivity.class)));
+    // ✅ Dashboard Card Click Handlers
 
-        // 🔮 Period Prediction
-        findViewById(R.id.btnStartCycle).setOnClickListener(v ->
-                startActivity(new Intent(this, StartCycleActivity.class)));
+    public void onViewHealthArticlesClicked(View view) {
+        startActivity(new Intent(this, HealthArticlesActivity.class));
+    }
 
-        // 💬 Daily Quote
-        findViewById(R.id.btnDailyQuote).setOnClickListener(v ->
-                startActivity(new Intent(this, DailyQuoteActivity.class)));
+    public void onPredictPeriodClicked(View view) {
+        startActivity(new Intent(this, PredictionResultActivity.class));
+    }
 
-        // 🔔 Reminder
-        findViewById(R.id.btnReminder).setOnClickListener(v ->
-                startActivity(new Intent(this, ReminderActivity.class)));
+    public void onDailyQuoteClicked(View view) {
+        startActivity(new Intent(this, DailyQuoteActivity.class));
+    }
 
-        // 👤 Profile
-        findViewById(R.id.btnUserProfile).setOnClickListener(v ->
-                startActivity(new Intent(this, UserProfileActivity.class)));
+    public void onReminderClicked(View view) {
+        startActivity(new Intent(this, ReminderActivity.class));
+    }
 
-        // 🚪 Logout
-        findViewById(R.id.btnLogout).setOnClickListener(v -> {
-            auth.signOut();
-            startActivity(new Intent(this, LoginActivity.class));
-            finish();
-        });
+    public void onUserProfileClicked(View view) {
+        startActivity(new Intent(this, UserProfileActivity.class));
+    }
 
-        // 🗓️ Calendar
-        findViewById(R.id.btnCalendar).setOnClickListener(v ->
-                startActivity(new Intent(this, CycleCalendarActivity.class)));
+    public void onCycleCalendarClicked(View view) {
+        startActivity(new Intent(this, CycleCalendarActivity.class));
+    }
 
-        // 🧠 Mood & Symptom Tracker
-        findViewById(R.id.btnMoodSymptom).setOnClickListener(v ->
-                startActivity(new Intent(this, MoodSymptomActivity.class)));
+    public void onMoodTrackerClicked(View view) {
+        startActivity(new Intent(this, MoodSymptomActivity.class));
+    }
 
-        // 🧘 Mood History
-        findViewById(R.id.btnHistory).setOnClickListener(v ->
-                startActivity(new Intent(this, MoodSymptomHistoryActivity.class)));
+    public void onMoodHistoryClicked(View view) {
+        startActivity(new Intent(this, MoodSymptomHistoryActivity.class));
+    }
+
+    public void onTipsClicked(View view) {
+        startActivity(new Intent(this, TipsActivity.class));
+    }
+
+    public void onLogoutClicked(View view) {
+        auth.signOut();
+        startActivity(new Intent(this, LoginActivity.class));
+        finish();
     }
 }

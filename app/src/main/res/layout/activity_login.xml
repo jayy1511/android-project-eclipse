@@ -5,7 +5,17 @@
     android:orientation="vertical"
     android:padding="24dp"
     android:gravity="center"
-    android:background="#FFF9F9">
+    android:background="#FFF">
+
+    <TextView
+        android:id="@+id/titleLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="👩‍⚕️ RedAlert Login"
+        android:textSize="26sp"
+        android:textColor="#D81B60"
+        android:textStyle="bold"
+        android:layout_marginBottom="32dp" />
 
     <EditText
         android:id="@+id/emailLogin"
@@ -13,7 +23,8 @@
         android:layout_height="wrap_content"
         android:hint="Email"
         android:inputType="textEmailAddress"
-        android:layout_marginBottom="16dp" />
+        android:padding="12dp"
+        android:background="@android:drawable/edit_text" />
 
     <EditText
         android:id="@+id/passwordLogin"
@@ -21,22 +32,25 @@
         android:layout_height="wrap_content"
         android:hint="Password"
         android:inputType="textPassword"
-        android:layout_marginBottom="24dp" />
+        android:padding="12dp"
+        android:background="@android:drawable/edit_text"
+        android:layout_marginTop="16dp" />
 
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login"
-        android:backgroundTint="#8E24AA"
-        android:textColor="#FFFFFF" />
+        android:text="LOGIN"
+        android:backgroundTint="#880E4F"
+        android:textColor="#FFF"
+        android:layout_marginTop="24dp" />
 
     <Button
         android:id="@+id/btnGoToSignup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Don't have an account? Sign up"
-        android:layout_marginTop="12dp"
-        android:backgroundTint="#B39DDB"
-        android:textColor="#FFFFFF"/>
+        android:text="Don't have an account? Sign Up"
+        android:textColor="#880E4F"
+        android:backgroundTint="#F8BBD0"
+        android:layout_marginTop="12dp" />
 </LinearLayout>
