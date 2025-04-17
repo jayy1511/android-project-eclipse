@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         FirebaseUser user = auth.getCurrentUser();
 
-        // 🔐 Redirect to Login if user is not logged in
         if (user == null) {
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
             finish();
@@ -29,42 +28,43 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-        Button btnViewArticles = findViewById(R.id.btnViewArticles);
-        btnViewArticles.setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, HealthArticlesActivity.class));
-        });
+        // 📚 Health Articles
+        findViewById(R.id.btnViewArticles).setOnClickListener(v ->
+                startActivity(new Intent(this, HealthArticlesActivity.class)));
 
-        Button btnStartCycle = findViewById(R.id.btnStartCycle);
-        btnStartCycle.setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, StartCycleActivity.class));
-        });
+        // 🔮 Period Prediction
+        findViewById(R.id.btnStartCycle).setOnClickListener(v ->
+                startActivity(new Intent(this, StartCycleActivity.class)));
 
-        Button btnDailyQuote = findViewById(R.id.btnDailyQuote);
-        btnDailyQuote.setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, DailyQuoteActivity.class));
-        });
+        // 💬 Daily Quote
+        findViewById(R.id.btnDailyQuote).setOnClickListener(v ->
+                startActivity(new Intent(this, DailyQuoteActivity.class)));
 
-        Button btnReminder = findViewById(R.id.btnReminder);
-        btnReminder.setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, ReminderActivity.class));
-        });
+        // 🔔 Reminder
+        findViewById(R.id.btnReminder).setOnClickListener(v ->
+                startActivity(new Intent(this, ReminderActivity.class)));
 
-        Button btnUserProfile = findViewById(R.id.btnUserProfile);
-        btnUserProfile.setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, UserProfileActivity.class));
-        });
+        // 👤 Profile
+        findViewById(R.id.btnUserProfile).setOnClickListener(v ->
+                startActivity(new Intent(this, UserProfileActivity.class)));
 
-        Button btnLogout = findViewById(R.id.btnLogout);
-        btnLogout.setOnClickListener(v -> {
+        // 🚪 Logout
+        findViewById(R.id.btnLogout).setOnClickListener(v -> {
             auth.signOut();
-            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            startActivity(new Intent(this, LoginActivity.class));
             finish();
         });
 
-        // 🗓️ Cycle Calendar
-        Button btnCalendar = findViewById(R.id.btnCalendar);
-        btnCalendar.setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, CycleCalendarActivity.class));
-        });
+        // 🗓️ Calendar
+        findViewById(R.id.btnCalendar).setOnClickListener(v ->
+                startActivity(new Intent(this, CycleCalendarActivity.class)));
+
+        // 🧠 Mood & Symptom Tracker
+        findViewById(R.id.btnMoodSymptom).setOnClickListener(v ->
+                startActivity(new Intent(this, MoodSymptomActivity.class)));
+
+        // 🧘 Mood History
+        findViewById(R.id.btnHistory).setOnClickListener(v ->
+                startActivity(new Intent(this, MoodSymptomHistoryActivity.class)));
     }
 }

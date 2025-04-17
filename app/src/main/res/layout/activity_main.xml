@@ -103,6 +103,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="24dp"
+        android:layout_marginHorizontal="32dp" />
+
+    <!-- 🧠 Mood & Symptom Tracker -->
+    <Button
+        android:id="@+id/btnMoodSymptom"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="🧠 Mood and Symptom Tracker"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#009688"
+        app:layout_constraintTop_toBottomOf="@id/btnCalendar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"
+        android:layout_marginHorizontal="32dp" />
+
+    <!-- 🧘 View Mood & Symptom History -->
+    <Button
+        android:id="@+id/btnHistory"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="🧘 View Mood and Symptom History"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#9575CD"
+        app:layout_constraintTop_toBottomOf="@id/btnMoodSymptom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"
         android:layout_marginBottom="32dp"
         android:layout_marginHorizontal="32dp" />
 

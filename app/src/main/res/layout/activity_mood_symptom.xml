@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="#FFF9F9">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🌦️ Select Your Mood"
+        android:textSize="18sp"
+        android:textColor="#6A1B9A"
+        android:layout_marginBottom="8dp" />
+
+    <Spinner
+        android:id="@+id/moodSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="💢 Select a Symptom"
+        android:textSize="18sp"
+        android:textColor="#6A1B9A"
+        android:layout_marginBottom="8dp" />
+
+    <Spinner
+        android:id="@+id/symptomSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp" />
+
+    <Button
+        android:id="@+id/btnSaveMoodSymptom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Entry"
+        android:textColor="#FFF"
+        android:backgroundTint="#8E24AA" />
+</LinearLayout>

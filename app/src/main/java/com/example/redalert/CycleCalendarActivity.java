@@ -1,34 +1,29 @@
 package com.example.redalert;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.HashSet;
-import java.util.Locale;
 import java.util.Set;
 
 public class CycleCalendarActivity extends AppCompatActivity {
 
     MaterialCalendarView calendarView;
     TextView selectedDateText;
-
     FirebaseFirestore db;
-    FirebaseUser user;
+    FirebaseAuth auth;
 
-    Set<CalendarDay> savedPeriodDays = new HashSet<>();
-    int periodDuration = 4; // Default duration (can be dynamic later)
+    Set<CalendarDay> moodSymptomDays = new HashSet<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,76 +34,39 @@ public class CycleCalendarActivity extends AppCompatActivity {
         selectedDateText = findViewById(R.id.selectedDateText);
 
         db = FirebaseFirestore.getInstance();
-        user = FirebaseAuth.getInstance().getCurrentUser();
+        auth = FirebaseAuth.getInstance();
+
+        loadMoodSymptomData();
 
         calendarView.setOnDateChangedListener((widget, date, selected) -> {
-            String formatted = "📅 Selected: " + date.getDay() + "/" + date.getMonth() + "/" + date.getYear();
-            selectedDateText.setText(formatted);
+            String formatted = date.getYear() + "-" + String.format("%02d", date.getMonth() + 1) + "-" + String.format("%02d", date.getDay());
+            selectedDateText.setText("📅 " + formatted);
 
-            // Save to Firestore
-            savePeriodToFirestore(date.getDate());
+            // 👉 Launch MoodSymptomActivity for editing/viewing that day
+            Intent intent = new Intent(this, MoodSymptomActivity.class);
+            intent.putExtra("selected_date", formatted);
+            startActivity(intent);
         });
-
-        loadSavedPeriodData(); // 🔄 Load user's previous periods
     }
 
-    private void savePeriodToFirestore(Date startDate) {
-        if (user == null) return;
-
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(startDate);
-
-        Set<CalendarDay> newPeriodDays = new HashSet<>();
-        for (int i = 0; i < periodDuration; i++) {
-            CalendarDay day = CalendarDay.from(calendar);
-            newPeriodDays.add(day);
-
-            String formatted = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(calendar.getTime());
-
-            db.collection("users")
-                    .document(user.getUid())
-                    .collection("periods")
-                    .document(formatted)
-                    .set(new PeriodEntry(formatted)); // Save each day
-
-            calendar.add(Calendar.DAY_OF_MONTH, 1); // Go to next day
-        }
-
-        savedPeriodDays.addAll(newPeriodDays);
-        calendarView.addDecorator(new PeriodDayDecorator(savedPeriodDays));
-        Toast.makeText(this, "🩸 Period saved!", Toast.LENGTH_SHORT).show();
-    }
-
-    private void loadSavedPeriodData() {
-        if (user == null) return;
-
-        db.collection("users")
-                .document(user.getUid())
-                .collection("periods")
+    private void loadMoodSymptomData() {
+        String uid = auth.getCurrentUser().getUid();
+        db.collection("mood_symptoms")
+                .document(uid)
                 .get()
-                .addOnSuccessListener(query -> {
-                    for (var doc : query.getDocuments()) {
-                        String dateStr = doc.getId();
-                        try {
-                            Date date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(dateStr);
-                            CalendarDay day = CalendarDay.from(date);
-                            savedPeriodDays.add(day);
-                        } catch (Exception e) {
-                            e.printStackTrace();
+                .addOnSuccessListener(documentSnapshot -> {
+                    if (documentSnapshot.exists()) {
+                        for (String key : documentSnapshot.getData().keySet()) {
+                            String[] parts = key.split("-");
+                            CalendarDay day = CalendarDay.from(
+                                    Integer.parseInt(parts[0]),
+                                    Integer.parseInt(parts[1]) - 1,
+                                    Integer.parseInt(parts[2])
+                            );
+                            moodSymptomDays.add(day);
                         }
+                        calendarView.addDecorator(new MoodSymptomDayDecorator(moodSymptomDays));
                     }
-                    calendarView.addDecorator(new PeriodDayDecorator(savedPeriodDays));
-                })
-                .addOnFailureListener(e -> Toast.makeText(this, "❌ Failed to load periods", Toast.LENGTH_SHORT).show());
-    }
-
-    // Helper class for Firestore
-    public static class PeriodEntry {
-        public String date;
-
-        public PeriodEntry() {} // Needed for Firestore
-        public PeriodEntry(String date) {
-            this.date = date;
-        }
+                });
     }
 }
