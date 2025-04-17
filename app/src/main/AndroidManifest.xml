@@ -15,8 +15,17 @@
         android:theme="@style/Theme.RedAlert"
         tools:targetApi="31">
         <activity
-            android:name=".PeriodDayDecorator"
+            android:name=".MoodSymptomHistoryActivity"
             android:exported="false" />
+        <activity
+            android:name=".MoodSymptomDayDecorator"
+            android:exported="false" /> <!-- 🧠 Mood & Symptom Tracker Activity -->
+        <activity
+            android:name=".MoodSymptomActivity"
+            android:exported="false" /> <!-- 🔴 Period Decorator -->
+        <activity
+            android:name=".PeriodDayDecorator"
+            android:exported="false" /> <!-- 🗓️ Cycle Calendar -->
         <activity
             android:name=".CycleCalendarActivity"
             android:exported="false" /> <!-- ✅ Auth Activities -->

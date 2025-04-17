@@ -3,21 +3,18 @@ package com.example.redalert;
 import android.graphics.Color;
 import android.text.style.BackgroundColorSpan;
 
-import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.DayViewDecorator;
 import com.prolificinteractive.materialcalendarview.DayViewFacade;
+import com.prolificinteractive.materialcalendarview.CalendarDay;
 
-import java.util.HashSet;
 import java.util.Set;
 
-public class PeriodDayDecorator implements DayViewDecorator {
+public class MoodSymptomDayDecorator implements DayViewDecorator {
 
     private final Set<CalendarDay> dates;
-    private final int color;
 
-    public PeriodDayDecorator(Set<CalendarDay> dates, int color) {
-        this.dates = new HashSet<>(dates);
-        this.color = color;
+    public MoodSymptomDayDecorator(Set<CalendarDay> dates) {
+        this.dates = dates;
     }
 
     @Override
@@ -27,6 +24,6 @@ public class PeriodDayDecorator implements DayViewDecorator {
 
     @Override
     public void decorate(DayViewFacade view) {
-        view.addSpan(new BackgroundColorSpan(color));
+        view.addSpan(new BackgroundColorSpan(Color.parseColor("#FFEB3B"))); // Yellow
     }
 }
