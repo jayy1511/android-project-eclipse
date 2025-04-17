@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <!-- 🌐 Internet permission for API calls -->
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -14,60 +15,37 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RedAlert"
         tools:targetApi="31">
-        <activity
-            android:name=".MoodSymptomHistoryActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MoodSymptomDayDecorator"
-            android:exported="false" /> <!-- 🧠 Mood & Symptom Tracker Activity -->
-        <activity
-            android:name=".MoodSymptomActivity"
-            android:exported="false" /> <!-- 🔴 Period Decorator -->
-        <activity
-            android:name=".PeriodDayDecorator"
-            android:exported="false" /> <!-- 🗓️ Cycle Calendar -->
-        <activity
-            android:name=".CycleCalendarActivity"
-            android:exported="false" /> <!-- ✅ Auth Activities -->
-        <activity
-            android:name=".SignupActivity"
-            android:exported="false" />
+
+        <activity android:name=".NewsArticle" android:exported="false" />
+        <activity android:name=".MoodSymptomHistoryActivity" android:exported="false" />
+        <activity android:name=".MoodSymptomDayDecorator" android:exported="false" />
+        <activity android:name=".MoodSymptomActivity" android:exported="false" />
+        <activity android:name=".PeriodDayDecorator" android:exported="false" />
+        <activity android:name=".CycleCalendarActivity" android:exported="false" />
+        <activity android:name=".SignupActivity" android:exported="false" />
+
+        <!-- ✅ 👇 LoginActivity is now the launcher -->
         <activity
             android:name=".LoginActivity"
-            android:exported="false" /> <!-- 👤 Profile -->
-        <activity
-            android:name=".UserProfileActivity"
-            android:exported="false" /> <!-- 🔔 Reminders -->
-        <activity
-            android:name=".ReminderReceiver"
-            android:exported="false" />
-        <activity
-            android:name=".ReminderActivity"
-            android:exported="false" /> <!-- 💬 Quotes -->
-        <activity
-            android:name=".DailyQuoteActivity"
-            android:exported="false" /> <!-- 📰 Articles -->
-        <activity
-            android:name=".HealthArticlesActivity"
-            android:exported="false" /> <!-- 🌼 Tips -->
-        <activity
-            android:name=".TipsActivity"
-            android:exported="false" /> <!-- 🔮 Predictions -->
-        <activity
-            android:name=".PredictionResultActivity"
-            android:exported="false" />
-        <activity
-            android:name=".StartCycleActivity"
-            android:exported="false" /> <!-- 🏠 Launcher -->
-        <activity
-            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".UserProfileActivity" android:exported="false" />
+        <activity android:name=".ReminderReceiver" android:exported="false" />
+        <activity android:name=".ReminderActivity" android:exported="false" />
+        <activity android:name=".DailyQuoteActivity" android:exported="false" />
+        <activity android:name=".HealthArticlesActivity" android:exported="false" />
+        <activity android:name=".TipsActivity" android:exported="false" />
+        <activity android:name=".PredictionResultActivity" android:exported="false" />
+        <activity android:name=".StartCycleActivity" android:exported="false" />
+
+        <!-- 🏠 MainActivity now just a normal activity -->
+        <activity android:name=".MainActivity" android:exported="false" />
+
     </application>
 
 </manifest>
