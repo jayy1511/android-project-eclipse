@@ -1,53 +1,87 @@
-# 🔴 Red Alert – Period & Mood Tracker App
 
-**Red Alert** is a clean and beginner-friendly Android app built in **Java** using **Android Studio**. It helps users:
-- Track their menstrual cycle
-- Predict mood and fertility insights
-- Browse useful health and wellness tips
+# RedAlert Android App
 
-This project was developed by a team of 5 students as part of our GitHub Classroom assignment.
+## Project Overview
 
----
+RedAlert is a user-centric Android mobile application designed primarily for health and wellness management, specifically tailored for period tracking, mood and symptom logging, cycle prediction, and personalized wellness tips.
 
-## 📱 App Features
+## Technology Stack
 
-- 📅 **Cycle Input Screen**  
-  Enter your last period start date with a date picker.
+- **Language:** Java
+- **Development Environment:** Android Studio
+- **Database:** Firebase Firestore
+- **Authentication:** Firebase Authentication
+- **Cloud Storage:** Firebase Storage
 
-- 🔮 **Prediction Screen**  
-  See the estimated next period, current mood state, and pregnancy likelihood.
+## Project Structure
 
-- 💡 **Tips Section**  
-  Browse pre-uploaded wellness tips to improve comfort and cycle care.
+- **app/** - Main source code and resources for the application.
+- **gradle/** - Gradle wrapper scripts and configuration.
+- **README.md** - Overview and essential project details.
+- **google-services.json** - Firebase integration configuration file.
 
-- 🎨 **User-Friendly Interface**  
-  Simple, clean, and modern design.
+### Source Code Directories
+- `src/main/java`: Java source code.
+- `src/main/res`: XML layouts and resources.
+- `src/androidTest`: Android instrumentation tests.
+- `src/test`: Unit tests.
 
----
+## Key Functionalities
 
-## 🧑‍🤝‍🧑 Team Members
+### User Authentication
+- Secure login and signup with Firebase Authentication.
+- Persistent user sessions and personalized user experience.
 
-| Name    | Role |
-|---------|------|
-| **Jay**     | Period Input Screen + GitHub Integration + Project Lead |
-| **Eman**    | UI/UX Design + Layout Optimization |
-| **Divy**    | Prediction Logic + Mood & Fertility Calculations |
-| **Yashvi**  | Tips Section + Final Testing |
-| **Jesica**  | Documentation, Review & App Deployment Assistance |
+### Period Tracking & Predictions
+- Allows users to log and manage menstrual cycle data.
+- Period duration, start and end dates management.
+- Predicts menstrual cycles, ovulation, fertile windows, and luteal phases displayed on a calendar.
 
----
+### Mood and Symptom Tracker
+- Users can log their daily moods and symptoms.
+- Data visualization through a calendar highlighting saved mood and symptom dates.
 
-## 🧰 Built With
+### Wellness Tips
+- Daily wellness advice tailored to the user’s current menstrual cycle stage.
 
-- 💻 Android Studio
-- ☕ Java
-- 🎨 XML Layouts
-- 🐙 Git & GitHub Classroom
+### Profile Management
+- Stores user-specific data (name, age, cycle length) using SharedPreferences.
 
----
+## Firebase Integration
 
-## 🧪 How to Run the App Locally
+### Firebase Authentication
+- Manages user sign-up, sign-in, and account security.
 
-1. Clone the repo:
-   ```bash
-   git clone https://github.com/arcreane/android-project-eclipse.git
+### Firebase Firestore
+- Stores user-specific period, mood, and symptom data.
+
+### Firebase Storage (optional)
+- Used for storing user-uploaded data if implemented.
+
+## Setup and Execution
+
+1. Clone the repository or unzip the provided project.
+2. Open the project in Android Studio.
+3. Replace `google-services.json` with your Firebase project's configuration file.
+4. Sync Gradle files (`File > Sync Project with Gradle Files`).
+5. Run the application on an emulator or physical device.
+
+## Testing and Troubleshooting
+
+### Running Tests
+- Execute unit tests from the `src/test/java` directory.
+- Perform instrumentation tests from the `src/androidTest/java` directory.
+
+### Troubleshooting Common Issues
+- Ensure your Firebase setup matches the provided `google-services.json` file.
+- Verify Gradle dependencies are properly configured and synced.
+
+## Future Enhancements
+
+- Detailed analytics and reporting.
+- Community-driven health advice and forums.
+- Multimedia support using Firebase Storage.
+
+## Conclusion
+
+RedAlert provides a comprehensive yet intuitive interface for managing menstrual health, empowering users with precise data, personalized predictions, and valuable wellness information.
