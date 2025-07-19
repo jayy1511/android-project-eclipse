@@ -52,7 +52,7 @@ public class DailyQuoteActivity extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(DailyQuoteActivity.this, "Failed to load quote", Toast.LENGTH_SHORT).show();
+                Toast.makeText(DailyQuoteActivity.this, "Failed to load", Toast.LENGTH_SHORT).show();
             }
         });
 
