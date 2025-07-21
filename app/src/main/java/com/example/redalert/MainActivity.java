@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    // ✅ Dashboard Card Click Handlers
+    // Dashboard Card Click Handlers
 
     public void onViewHealthArticlesClicked(View view) {
         startActivity(new Intent(this, HealthArticlesActivity.class));
